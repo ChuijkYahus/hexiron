@@ -1,0 +1,20 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+# https://copier.readthedocs.io/en/stable/configuring/#the-copier-answersyml-file
+_commit: v0.0.9
+_src_path: gh:FallingColors/hexdummy
+author: beholderface
+capitalize_platforms: false
+classname: Hexiron
+default_branch: main
+description: A Hex Casting addon that adds interop with Iron's Spells n' Spellbooks
+display_name: Hexiron
+github_repo: hexiron
+hexcasting_version: 0.10.3
+homepage_url: https://beholderface.github.io/hexiron
+initial_mod_version: 0.0.1
+java_version: 17
+license: MIT
+mappings_name: Yarn
+modid: hexiron
+package: net.beholderface.hexiron
+sources_url: https://github.com/beholderface/hexiron

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "hexiron",
+  "version": "${version}",
+  "name": "Hexiron",
+  "description": "A Hex Casting addon that adds interop with Iron's Spells n' Spellbooks",
+  "authors": [
+    "beholderface"
+  ],
+  "contact": {
+    "homepage": "https://beholderface.github.io/hexiron",
+    "sources": "https://github.com/beholderface/hexiron"
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.beholderface.hexiron.fabric.HexironFabric"
+    ],
+    "client": [
+      "net.beholderface.hexiron.fabric.HexironClientFabric"
+    ]
+  },
+  "mixins": [
+    "hexiron-common.mixins.json",
+    "hexiron.mixins.json"
+  ],
+  "depends": {
+    "minecraft": ">=${minecraftVersion}",
+    "fabricloader": ">=${fabricLoaderVersion}",
+    "fabric-api": "*",
+    "fabric-language-kotlin": ">=${fabricKotlinVersion}",
+    "architectury": ">=${architecturyVersion}",
+    "hexcasting": ">=${hexcastingVersion}"
+  }
+}
