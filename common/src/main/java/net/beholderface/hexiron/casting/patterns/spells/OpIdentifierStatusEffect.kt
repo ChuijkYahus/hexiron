@@ -24,17 +24,17 @@ class OpIdentifierStatusEffect(val effectID : Identifier, val allowPotency : Boo
         ctx.assertEntityInRange(target)
         val effect = Hexiron.getStatusEffectRegistry().get(effectID)!!
         val statusIDs = HexironPatternRegistry.statusIDs
-        val serverconfigaccess = HexironConfig.server
+        //val serverconfigaccess = HexironConfig.server
         val configuredCost : Int = if (effectID == statusIDs[0]){
-            serverconfigaccess.wingsCost
+            MediaConstants.DUST_UNIT / 2
         } else if (effectID == statusIDs[1]){
-            serverconfigaccess.sightCost
+            MediaConstants.DUST_UNIT * 2
         } else if (effectID == statusIDs[2]){
-            serverconfigaccess.invisCost
+            MediaConstants.DUST_UNIT
         } else if (effectID == statusIDs[3]){
-            serverconfigaccess.chargeCost
+            MediaConstants.DUST_UNIT
         } else if (effectID == statusIDs[4]){
-            serverconfigaccess.oakskinCost
+            MediaConstants.DUST_UNIT
         } else {
             MediaConstants.DUST_UNIT
         }

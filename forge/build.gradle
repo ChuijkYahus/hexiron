@@ -130,7 +130,7 @@ publishMods {
     type = STABLE
     modLoaders.add("forge")
 
-    version = project.version + "-forge"
+    version = project.version + "-forge-demo"
     displayName = "Hexiron $project.version [Forge]"
 
     // Uncomment your desired platform(s)
