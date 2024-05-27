@@ -10,10 +10,9 @@ public class HexironAbstractionsImpl {
      * This is the actual implementation of {@link HexironAbstractions#getConfigDirectory()}.
      */
     public static Path getConfigDirectory() {
-        return FabricLoader.getInstance().getConfigDir();
+        return null;
     }
 	
     public static void initPlatformSpecific() {
-        HexironConfigFabric.init();
     }
 }

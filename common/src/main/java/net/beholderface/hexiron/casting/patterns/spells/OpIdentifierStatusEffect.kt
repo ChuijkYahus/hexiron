@@ -1,16 +1,19 @@
 package net.beholderface.hexiron.casting.patterns.spells
 
+import at.petrak.hexcasting.api.misc.MediaConstants
 import at.petrak.hexcasting.api.spell.*
 import at.petrak.hexcasting.api.spell.casting.CastingContext
 import at.petrak.hexcasting.api.spell.iota.Iota
 import net.beholderface.hexiron.Hexiron
+import net.beholderface.hexiron.HexironConfig
+import net.beholderface.hexiron.registry.HexironPatternRegistry
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.util.Identifier
 
 //janky workaround goes brr
-class OpIdentifierStatusEffect(val effectID : Identifier, val baseCost : Int, val allowPotency : Boolean, val potencyCubic : Boolean,
+class OpIdentifierStatusEffect(val effectID : Identifier, val allowPotency : Boolean, val potencyCubic : Boolean,
                                override val isGreat: Boolean) : SpellAction {
     override val argc: Int
         get() = if (this.allowPotency) 3 else 2
@@ -20,7 +23,22 @@ class OpIdentifierStatusEffect(val effectID : Identifier, val baseCost : Int, va
         val potency = if(this.allowPotency) args.getPositiveDoubleUnderInclusive(2, 127.0, argc) else 1.0
         ctx.assertEntityInRange(target)
         val effect = Hexiron.getStatusEffectRegistry().get(effectID)!!
-        val cost = this.baseCost * duration * if (potencyCubic) {
+        val statusIDs = HexironPatternRegistry.statusIDs
+        val serverconfigaccess = HexironConfig.server
+        val configuredCost : Int = if (effectID == statusIDs[0]){
+            serverconfigaccess.wingsCost
+        } else if (effectID == statusIDs[1]){
+            serverconfigaccess.sightCost
+        } else if (effectID == statusIDs[2]){
+            serverconfigaccess.invisCost
+        } else if (effectID == statusIDs[3]){
+            serverconfigaccess.chargeCost
+        } else if (effectID == statusIDs[4]){
+            serverconfigaccess.oakskinCost
+        } else {
+            MediaConstants.DUST_UNIT
+        }
+        val cost = configuredCost * duration * if (potencyCubic) {
             potency * potency * potency
         } else {
             potency * potency

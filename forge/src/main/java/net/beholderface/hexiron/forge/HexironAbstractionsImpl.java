@@ -14,6 +14,6 @@ public class HexironAbstractionsImpl {
     }
 	
     public static void initPlatformSpecific() {
-        HexironConfigForge.init();
+
     }
 }

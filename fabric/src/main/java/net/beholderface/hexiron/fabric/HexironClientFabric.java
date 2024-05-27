@@ -9,6 +9,5 @@ import net.beholderface.hexiron.HexironClient;
 public class HexironClientFabric implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        HexironClient.init();
     }
 }

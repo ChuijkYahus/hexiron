@@ -1,3 +1,4 @@
+/*
 package net.beholderface.hexiron.fabric;
 
 import at.petrak.hexcasting.api.misc.MediaConstants;
@@ -57,11 +58,12 @@ public class HexironConfigFabric extends PartitioningSerializer.GlobalData {
 
         @Override
         public void validatePostLoad() throws ValidationException {
-            this.costs.signumCost = HexironConfig.bound(this.costs.signumCost, DEF_MIN_COST, DEF_MAX_COST);
-            this.costs.congratsCost = HexironConfig.bound(this.costs.congratsCost, DEF_MIN_COST, DEF_MAX_COST);
+            //this.costs.signumCost = HexironConfig.bound(this.costs.signumCost, DEF_MIN_COST, DEF_MAX_COST);
+            //this.costs.congratsCost = HexironConfig.bound(this.costs.congratsCost, DEF_MIN_COST, DEF_MAX_COST);
         }
 
-        @Override
+        */
+/*@Override
         public int getSignumCost() {
             return (int) (costs.signumCost * MediaConstants.DUST_UNIT);
         }
@@ -69,12 +71,13 @@ public class HexironConfigFabric extends PartitioningSerializer.GlobalData {
         @Override
         public int getCongratsCost() {
             return (int) (costs.congratsCost * MediaConstants.DUST_UNIT);
-        }
+        }*//*
+
 
         static class Costs {
             // costs of actions
-            double signumCost = DEFAULT_SIGNUM_COST;
-            double congratsCost = DEFAULT_CONGRATS_COST;
+            //double signumCost = DEFAULT_SIGNUM_COST;
+            //double congratsCost = DEFAULT_CONGRATS_COST;
         }
     }
-}
+}*/

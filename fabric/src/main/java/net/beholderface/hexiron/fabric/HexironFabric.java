@@ -14,6 +14,6 @@ import net.beholderface.hexiron.Hexiron;
 public class HexironFabric implements ModInitializer {
     @Override
     public void onInitialize() {
-        Hexiron.init();
+        //don't do anything, this section only exists because of the template
     }
 }

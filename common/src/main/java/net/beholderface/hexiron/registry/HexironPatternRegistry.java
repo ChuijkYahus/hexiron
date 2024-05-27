@@ -7,6 +7,7 @@ import at.petrak.hexcasting.api.spell.math.HexDir;
 import at.petrak.hexcasting.api.spell.math.HexPattern;
 import kotlin.Triple;
 import net.beholderface.hexiron.Hexiron;
+import net.beholderface.hexiron.HexironConfig;
 import net.beholderface.hexiron.casting.patterns.spells.OpIdentifierStatusEffect;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.util.Identifier;
@@ -23,14 +24,20 @@ public class HexironPatternRegistry {
     // IMPORTANT: be careful to keep the registration calls looking like this, or you'll have to edit the hexdoc pattern regex.
     //public static HexPattern CONGRATS = reghjgfhcgfdisterPerWorld(HexPattern.fromAngles("eed", HexDir.WEST), "congrats", new OpCongrats());
     //public static HexPattern SIGNUM = regishjgfhcgfdter(HexPattern.fromAngles("edd", HexDir.NORTH_WEST), "signum", new OpSignum());
+    public static final Identifier[] statusIDs = {new Identifier("irons_spellbooks", "angel_wings"), new Identifier("irons_spellbooks", "planar_sight"),
+            new Identifier("irons_spellbooks", "true_invisibility"), new Identifier("irons_spellbooks", "charged"),
+            new Identifier("irons_spellbooks", "oakskin")
+    };
     public static HexPattern ANGEL_WINGS = registerPerWorld(HexPattern.fromAngles("qqqqqaewwqawdwaqwwe", HexDir.SOUTH_WEST), "angelwings",
-            new OpIdentifierStatusEffect(new Identifier("irons_spellbooks", "angel_wings"), MediaConstants.DUST_UNIT / 2, false, false, true));
+            new OpIdentifierStatusEffect(statusIDs[0], false, true, true));
     public static HexPattern PLANAR_SIGHT = registerPerWorld(HexPattern.fromAngles("qqqqqaewwqqwqqaeedwawe", HexDir.SOUTH_WEST), "planarsight",
-            new OpIdentifierStatusEffect(new Identifier("irons_spellbooks", "planar_sight"), MediaConstants.DUST_UNIT * 2, false, false, true));
+            new OpIdentifierStatusEffect(statusIDs[1], false, true, true));
     public static HexPattern TRUE_INVISIBILITY = registerPerWorld(HexPattern.fromAngles("qqqqqaewwqadadaqwwe", HexDir.SOUTH_WEST), "trueinvis",
-            new OpIdentifierStatusEffect(new Identifier("irons_spellbooks", "true_invisibility"), MediaConstants.DUST_UNIT, false, false, true));
-    public static HexPattern ABYSSAL_SHROUD = registerPerWorld(HexPattern.fromAngles("qqqqqaewwqqwqqawdwdwawe", HexDir.SOUTH_WEST), "abyssshroud",
-            new OpIdentifierStatusEffect(new Identifier("irons_spellbooks", "abyssal_shroud"), MediaConstants.DUST_UNIT * 3, false, false, true));
+            new OpIdentifierStatusEffect(statusIDs[2], false, true, true));
+    public static HexPattern CHARGE = registerPerWorld(HexPattern.fromAngles("qqqqqaewwqqwqqawdwdwawe", HexDir.SOUTH_WEST), "charged",
+            new OpIdentifierStatusEffect(statusIDs[3], false, true, true));
+    public static HexPattern OAKSKIN = registerPerWorld(HexPattern.fromAngles("qqqqqaewqeawaadedaqwe", HexDir.SOUTH_WEST), "oakskin",
+            new OpIdentifierStatusEffect(statusIDs[4], true, true, true));
 
 
     public static void init() {
